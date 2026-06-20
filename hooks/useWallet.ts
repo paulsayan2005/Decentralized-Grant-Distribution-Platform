@@ -38,7 +38,7 @@ export const useWallet = create<WalletState>((set, get) => ({
       try {
         await kit.setWallet(walletId);
       } catch (err: any) {
-        console.error("Wallet setup error:", err);
+        console.warn("Wallet setup error:", err);
         throw new Error(`Wallet ${walletId} not found or failed to initialize. Please ensure it is installed.`);
       }
 
@@ -47,7 +47,7 @@ export const useWallet = create<WalletState>((set, get) => ({
       try {
         addressRes = await kit.fetchAddress();
       } catch (err: any) {
-        console.error("User rejected or failed to get address:", err);
+        console.warn("User rejected or failed to get address:", err);
         if (err?.message?.includes("reject") || err?.message?.includes("deny")) {
           throw new Error("User rejected connection request.");
         }
@@ -89,7 +89,7 @@ export const useWallet = create<WalletState>((set, get) => ({
       );
       set({ balance: nativeBalance ? nativeBalance.balance : "0.00" });
     } catch (err: any) {
-      console.error("Error loading account balance:", err);
+      console.warn("Error loading account balance:", err);
       // If account is not found on network, it's unfunded
       if (err.response?.status === 404) {
         set({ balance: "0.00 (Unfunded)" });
