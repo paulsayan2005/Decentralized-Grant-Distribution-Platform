@@ -1,0 +1,20 @@
+[package]
+name = "grant_distribution"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+soroban-sdk = "20.0.0"
+base64ct = "=1.6.0"
+zeroize = "=1.8.2"
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = false
+panic = "abort"
+lto = true
+codegen-units = 1
