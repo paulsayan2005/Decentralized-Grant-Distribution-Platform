@@ -14,7 +14,7 @@
     "@creit.tech/stellar-wallets-kit": "^2.3.0",
     "@stellar/stellar-sdk": "^16.0.1",
     "@tanstack/react-query": "^5.101.0",
-    "next": "15.0.0",
+    "next": "15.0.7",
     "react": "19.0.0-rc-65a56d0e-20241020",
     "react-dom": "19.0.0-rc-65a56d0e-20241020",
     "zustand": "^5.0.14"
