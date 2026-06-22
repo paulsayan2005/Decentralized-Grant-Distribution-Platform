@@ -20,10 +20,12 @@ export const rpcServer = new rpc.Server(RPC_URL);
 export const horizonServer = new Horizon.Server(HORIZON_URL);
 
 // Helper to convert standard JS types to ScVal (Soroban values)
-export function parseArg(val: any, type: "u32" | "i128" | "address" | "string" | "bool"): any {
+export function parseArg(val: any, type: "u32" | "u64" | "i128" | "address" | "string" | "bool"): any {
   switch (type) {
     case "u32":
       return nativeToScVal(Number(val), { type: "u32" });
+    case "u64":
+      return nativeToScVal(BigInt(val), { type: "u64" });
     case "i128":
       return nativeToScVal(BigInt(val), { type: "i128" });
     case "address":

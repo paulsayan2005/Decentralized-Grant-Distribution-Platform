@@ -119,7 +119,7 @@ export async function createGrant(
       parseArg(walletAddress, "address"),
       parseArg(recipient, "address"),
       parseArg(xlmToRaw(targetXlm), "i128"),
-      parseArg(deadlineTimestamp, "u32"),
+      parseArg(deadlineTimestamp, "u64"),
       parseArg(description, "string"),
     ],
     `Create Grant: ${description.slice(0, 30)}...`
